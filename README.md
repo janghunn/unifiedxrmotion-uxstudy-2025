@@ -7,6 +7,9 @@ This manual provides two parallel sets of instructions for identical Unity tasks
 
 Both manuals use the same wording style and level of detail for fair comparison. Follow each step as written; do not optimize for speed.
 
+> Survey (NASA-TLX and SUS)
+> https://docs.google.com/forms/d/e/1FAIpQLSeOqFWpfYdhKt8Hf3-RucCyR9Qm7beGRRzhLZ2IWdvW0Bi3Mw/viewform?usp=header
+
 ---
 
 ## Start Here — Make a Copy of the Template Scene
