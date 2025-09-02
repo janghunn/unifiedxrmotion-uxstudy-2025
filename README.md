@@ -1,14 +1,17 @@
 # Participant Manual — UnifiedXRMotion vs Meta SDK (Revised, Template-Based)
 
+> **Important — After You Finish the Tasks**
+>
+> 1. **Complete the questionnaire:** After finishing all assigned tasks, please fill out the study survey here: **[Survey Link](https://docs.google.com/forms/d/e/1FAIpQLSeOqFWpfYdhKt8Hf3-RucCyR9Qm7beGRRzhLZ2IWdvW0Bi3Mw/viewform?usp=header&utm_source=chatgpt.com)**.
+>
+> 2. **Confirm your results:** If you believe you completed all tasks successfully, open the video file **Videos/{SDK}-results.mp4** (replace **{SDK}** with **UnifiedXRMotion** or **Meta**) and compare it with your own outcome. If the observed result matches, inform the experiment administrator that the session is complete.
+
 This manual provides two parallel sets of instructions for identical Unity tasks using two SDKs:
 
 * **UnifiedXRMotion** (our SDK)
 * **Meta SDK** (Meta Core SDK + Meta XR Interaction SDK, with Movement SDK for full‑body retargeting)
 
 Both manuals use the same wording style and level of detail for fair comparison. Follow each step as written; do not optimize for speed.
-
-> Survey (NASA-TLX and SUS)
-> https://docs.google.com/forms/d/e/1FAIpQLSeOqFWpfYdhKt8Hf3-RucCyR9Qm7beGRRzhLZ2IWdvW0Bi3Mw/viewform?usp=header
 
 ---
 
