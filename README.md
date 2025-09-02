@@ -187,11 +187,11 @@ Please focus on **completing the tasks** rather than speed. After you finish, yo
 <table>
   <tr>
     <td align="center" width="50%">
-      <video src="Videos/ours-results.mp4" width="100%" controls></video>
+      <img src="Videos/ours-results.gif" width="100%" alt="UnifiedXRMotion (ours)">
       <div><em>UnifiedXRMotion (ours)</em></div>
     </td>
     <td align="center" width="50%">
-      <video src="Videos/meta-results.mp4" width="100%" controls></video>
+      <img src="Videos/meta-results.gif" width="100%" alt="Meta SDK">
       <div><em>Meta SDK</em></div>
     </td>
   </tr>
