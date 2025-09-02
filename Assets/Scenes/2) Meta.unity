@@ -2189,11 +2189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5272262661847662301, guid: deccf1bd75222ab419fef0130b2a4d9e, type: 3}
       propertyPath: _updateRootPose
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5272262661847662301, guid: deccf1bd75222ab419fef0130b2a4d9e, type: 3}
       propertyPath: _updateRootScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5272262661847662301, guid: deccf1bd75222ab419fef0130b2a4d9e, type: 3}
       propertyPath: '_customBones_V2.Array.data[0]'
