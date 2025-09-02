@@ -1,0 +1,91 @@
+# Unity .gitignore — tailored for repository with a Unity project
+# Place this file at the repo root. Keep Assets/, Packages/, and ProjectSettings/ under version control.
+
+############################
+# Core Unity build caches  #
+############################
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Aa]rtifacts/
+[Bb]ee/
+
+# Optional but common Unity folders
+[Mm]emory[Cc]aptures/
+[Rr]ecordings/
+[Cc]rash[Rr]eports/
+[Bb]uild[Rr]eport/
+[Dd]erived[Dd]ata[Cc]ache/
+
+# Addressables build output (keeps source data under Assets/AddressableAssetsData)
+# Note: do NOT ignore the whole StreamingAssets folder; only the Addressables output path.
+Assets/StreamingAssets/aa/
+[Ss]erver[Dd]ata/
+
+# Unity Asset Store tools (local only)
+[Aa]sset[Ss]tore[Tt]ools*/
+
+########################################
+# IDE / editor generated files & caches #
+########################################
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln
+*.csproj
+*.unityproj
+*.booproj
+*.pidb
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Rider / ReSharper
+*.DotSettings.user
+
+# Gradle (Android exports)
+.gradle/
+[Gg]radle/
+
+#################################
+# Platform- & OS-specific junk   #
+#################################
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+__MACOSX/
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux / editors
+*~
+
+########################################
+# Logs & diagnostics (safe to ignore)   #
+########################################
+*.log
+*.stacktrace
+*.dmp
+*.crash
+*.ips
+
+############################################################
+# Safety: make sure core Unity project folders are tracked  #
+############################################################
+!Assets/
+!Packages/
+!ProjectSettings/
