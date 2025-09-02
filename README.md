@@ -1,243 +1,177 @@
-# Participant Manuals — Unity SDK Study (IEEE VR 2026)
+# Participant Manual — UnifiedXRMotion vs Meta SDK (Revised, Template-Based)
 
-The two manuals below describe identical tasks performed with two different SDKs. Instructions are written in plain language, with the same structure and level of detail to support fair comparison.
+This manual provides two parallel sets of instructions for identical Unity tasks using two SDKs:
+
+* **UnifiedXRMotion** (our SDK)
+* **Meta SDK** (Meta Core SDK + Meta XR Interaction SDK, with Movement SDK for full‑body retargeting)
+
+Both manuals use the same wording style and level of detail for fair comparison. Follow each step as written; do not optimize for speed.
 
 ---
 
-## Manual A — Our SDK (UnifiedXRMotion)
+## Start Here — Make a Copy of the Template Scene
 
-### Overview
+You will begin from a prepared Unity project.
 
-You will prepare a Unity scene so an avatar follows simulated body and hand movement. You will complete **Full Body** and **Hands Only** tasks, then verify motion in the Meta Simulator.
+1. In the **Project** window, go to **Assets/Scenes/**.
+2. Right‑click **\_\_template.unity** → **Duplicate**. Rename the copy (for example, **ParticipantScene.unity**).
+3. Double‑click your new scene to open it.
+
+> The template scene already includes the basic layout shown in the study materials (SceneObjects, **FullBody** with **Y Bot**, and **Hands** with **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R**).
+
+---
+
+## Manual A — UnifiedXRMotion
 
 ### Before You Start
 
-- **Unity version:** 6000.0.33f1
-    
-- **Provided & already installed:** UnifiedXRMotion, OpenXR (Desktop → Meta XR Feature Group enabled), Meta Core SDK, Meta XR Simulator (77.0.0).
-    
-- **Scene:** A scene containing the **Y Bot** model and a **Hands** object is open. If anything is missing or looks different, pause and ask the facilitator.
-    
+* **Unity version:** 6000.0.33f1
+* **Installed:** UnifiedXRMotion, OpenXR (Desktop → Meta XR Feature Group enabled), Meta Core SDK, Meta XR Simulator (77.0.0)
+* If something is already set up in the scene, simply **confirm** it and continue.
 
-> Tip: If you make a mistake, press **Ctrl+Z** to undo.
-
----
-
-### Part 1 — Full Body Tracking
+### Task 1 — Move the Y Bot Character (Full Body)
 
 **Goal:** Make **Y Bot** move with simulated full‑body motion.
 
 **Steps**
 
-1. **Attach the avatar controller**
-    
-    1. In the **Hierarchy**, select **Y Bot**.
-        
-    2. In the **Inspector**, click **Add Component** → add **Motion Avatar**.
-        
-    3. (No change needed for Body Type here.)
-        
-2. **Create the motion system objects**
-    
-    1. In the **Hierarchy**, right‑click → **Create Empty**. Name it **MotionSystem**.
-        
-    2. With **MotionSystem** selected, in **Inspector** click **Add Component** → add **Motion System**.
-        
-    3. Right‑click **MotionSystem** → **Create Empty**. Name it **TrackingSystem**.
-        
-    4. With **TrackingSystem** selected, add **Tracking Manager** and **Meta Body Tracking**.
-        
-    5. Right‑click **MotionSystem** → **Create Empty**. Name it **RetargetSystem**.
-        
-    6. With **RetargetSystem** selected, add **Retarget System** and **Meta Body Retargeter**.
-        
-3. **Connect the systems**
-    
-    1. Select **MotionSystem**. In the **Motion System** component, add **TrackingSystem** to the **Motion Triggers** list.
-        
-    2. Select **RetargetSystem**. In **Retarget System**, set **Motion Avatar** to **Y Bot** (drag from Hierarchy if helpful).
-        
-    3. In **Retarget System**, add **Meta Body Retargeter** to **Input Motions**.
-        
-    4. Select **Meta Body Retargeter** (on **RetargetSystem**). Set its **Input Motion** to **TrackingSystem**.
-        
+1. In the **Hierarchy**, expand **FullBody** and select **Y Bot**.
+2. In the **Inspector**, confirm that **Motion Avatar** is present. If missing, click **Add Component** → add **Motion Avatar**.
+3. In the **Hierarchy**, locate **MotionSystem**. If it does not exist, create it:
+
+   * Create Empty **MotionSystem** and add **Motion System**.
+   * As children, create **TrackingSystem** (add **Tracking Manager** and **Meta Body Tracking**) and **RetargetSystem** (add **Retarget System** and **Meta Body Retargeter**).
+4. **Connect the systems** (verify or complete):
+
+   * Select **MotionSystem** → in **Motion System**, add **TrackingSystem** to **Motion Triggers**.
+   * Select **RetargetSystem** → in **Retarget System**, set **Motion Avatar** to **Y Bot**.
+   * In **Retarget System**, add **Meta Body Retargeter** to **Input Motions**.
+   * Select **Meta Body Retargeter** (on **RetargetSystem**) and set its **Input Motion** to **TrackingSystem**.
 
 **Expected Outcome**
 
-- When simulated movement plays, **Y Bot** should follow full‑body motion smoothly (head, torso, arms, and legs move).
-    
+* When simulated movement plays, **Y Bot** moves smoothly (head, torso, arms, legs).
 
----
+### Task 2 — Hands‑Only Tracking (Custom Hand Models)
 
-### Part 2 — Hands‑Only Tracking
-
-**Goal:** Make the **Hands** object move with simulated hand motion.
+**Goal:** Make the provided custom hand models (**OpenXRCustomHandPrefab\_L/R**) follow simulated hand motion.
 
 **Steps**
 
-1. **Ensure the hands avatar is configured**
-    
-    1. In the **Hierarchy**, select **Hands**.
-        
-    2. If **Motion Avatar** is not present, click **Add Component** → add **Motion Avatar**.
-        
-    3. In **Motion Avatar**, set **Body Type** to **Two Hands**.
-        
-2. **Create the motion system objects** (separate from Part 1 for clarity)
-    
-    1. In the **Hierarchy**, create **MotionSystem** (Empty) and add **Motion System** to it.
-        
-    2. Create child **TrackingSystem** and add **Tracking Manager** and **Meta Hand Tracking**.
-        
-    3. Create child **RetargetSystem** and add **Retarget System** and **Two Hands Retargeter**.
-        
-3. **Connect the systems**
-    
-    1. On **MotionSystem**, add **TrackingSystem** to **Motion Triggers**.
-        
-    2. On **Retarget System** (under **RetargetSystem**), set **Motion Avatar** to **Hands**.
-        
-    3. In **Retarget System**, add **Two Hands Retargeter** to **Input Motions**.
-        
-    4. On **Two Hands Retargeter**, set its **Input Motion** to **TrackingSystem**.
-        
+1. In the **Hierarchy**, expand **Hands** and confirm **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R** are present.
+2. Select **Hands**. In the **Inspector**, confirm **Motion Avatar** is present. If missing, **Add Component** → **Motion Avatar**.
+3. In **Motion Avatar**, set **Body Type** to **Two Hands**.
+4. In the **Hierarchy**, locate (or create) the hands motion system:
+
+   * Create **MotionSystem** (if missing) and add **Motion System**.
+   * Create child **TrackingSystem** and add **Tracking Manager** and **Meta Hand Tracking**.
+   * Create child **RetargetSystem** and add **Retarget System** and **Two Hands Retargeter**.
+5. **Connect the systems** (verify or complete):
+
+   * On **MotionSystem**, add **TrackingSystem** to **Motion Triggers**.
+   * On **Retarget System** (under **RetargetSystem**), set **Motion Avatar** to **Hands**.
+   * In **Retarget System**, add **Two Hands Retargeter** to **Input Motions**.
+   * On **Two Hands Retargeter**, set **Input Motion** to **TrackingSystem**.
 
 **Expected Outcome**
 
-- When simulated movement plays, the **Hands** object mirrors left/right hand poses and basic gestures.
-    
+* When simulated movement plays, the custom left and right hands animate and mirror basic poses.
 
----
+### Verify With Meta Simulator (UnifiedXRMotion)
 
-### Verify With Meta Simulator (for both Parts)
-
-**Steps**
-
-1. In the Unity toolbar, click the **Meta Simulator** toggle (to the left of **Play**) to enable it.
-    
+1. In the Unity toolbar, enable the **Meta Simulator** toggle (next to **Play**).
 2. Click **Play**.
-    
-3. In the Simulator controls, open **Inputs → Movement Tracking Controls → Play random movement**.
-    
+3. Open **Inputs → Movement Tracking Controls → Play random movement**.
 
 **Expected Outcome**
 
-- The selected avatar (Full Body or Hands) should animate in place following the random motion.
-    
-- If there is no movement, stop Play, re‑check the connections above, and try again.
-    
+* The current target (Y Bot for Task 1, Hands for Task 2) animates following the random motion.
+* If there is no motion, stop Play, review the connections above, and try again.
 
 ---
 
-### End Note
-
-Please focus on **completing** each part of the task, not on speed. After finishing, you will complete short surveys (SUS and NASA‑TLX) about your experience.
-
----
-
-## Manual B — Meta SDK (Meta Core + Meta XR Interaction + Movement SDK)
-
-### Overview
-
-You will prepare a Unity scene so an avatar follows simulated body and hand movement using Meta’s SDKs. You will complete **Full Body** and **Hands Only** tasks, then verify motion in the Meta Simulator.
+## Manual B — Meta SDK (Core + Interaction + Movement)
 
 ### Before You Start
 
-- **Unity version:** 6000.0.33f1
-    
-- **Provided & already installed:** OpenXR (Desktop → Meta XR Feature Group enabled), Meta Core SDK, Meta XR Simulator (77.0.0), **Movement SDK (78.0.0)** (from `https://github.com/oculus-samples/Unity-Movement.git`), **Meta XR Interaction SDK**.
-    
-- **Scene:** A scene containing the **Y Bot** model is open.
-    
+* **Unity version:** 6000.0.33f1
+* **Installed:** OpenXR (Desktop → Meta XR Feature Group enabled), Meta Core SDK, Meta XR Interaction SDK, Meta XR Simulator (77.0.0), Movement SDK (78.0.0)
+* If something is already set up in the scene, simply **confirm** it and continue.
 
-> Tip: If you make a mistake, press **Ctrl+Z** to undo.
-
----
-
-### Part 1 — Full Body Tracking (Movement SDK)
+### Task 1 — Move the Y Bot Character (Full Body)
 
 **Goal:** Make **Y Bot** move with simulated full‑body motion.
 
 **Steps**
 
 1. **Add the camera rig**
-    
-    1. In **Project** → **Packages/Meta XR Core SDK/Prefabs**, drag **OVRCameraRig** into the **Hierarchy**.
-        
-2. **Enable body tracking in OVRManager**
-    
-    1. Select **OVRCameraRig**. In **Inspector**, find **OVRManager**.
-        
-    2. Under **Quest Features**, set **Body Tracking Support** to **Required**.
-        
-    3. Under **Movement Tracking**, set **Body Tracking Joint Set** to **Full Body**.
-        
-3. **Retarget Y Bot to body tracking**
-    
-    1. In **Project**, right‑click the **Y Bot** model asset.
-        
-    2. Choose **Movement SDK → Body Tracking → Open Retargeting Configuration Editor**.
-        
-    3. If prompted to create a missing config JSON, choose **Create** and save it.
-        
-    4. Right‑click the **Y Bot** model asset again → **Movement SDK → Body Tracking → Add Character Retargeter**.
-        
+
+   * In **Project** → **Packages/Meta XR Core SDK/Prefabs**, drag **OVRCameraRig** into the **Hierarchy**.
+2. **Enable body tracking**
+
+   * Select **OVRCameraRig** → in **Inspector**, find **OVRManager**.
+   * Under **Quest Features**, set **Body Tracking Support** to **Required**.
+   * Under **Movement Tracking**, set **Body Tracking Joint Set** to **Full Body**.
+3. **Retarget Y Bot** (Movement SDK)
+
+   * In **Project**, right‑click the **Y Bot** model asset.
+   * Choose **Movement SDK → Body Tracking → Open Retargeting Configuration Editor**.
+   * If prompted, create and save the config JSON.
+   * Right‑click **Y Bot** again → **Movement SDK → Body Tracking → Add Character Retargeter**.
 
 **Expected Outcome**
 
-- When simulated movement plays, **Y Bot** should follow full‑body motion smoothly.
-    
+* When simulated movement plays, **Y Bot** follows full‑body motion.
 
----
+### Task 2 — Hands‑Only Tracking (Custom Hand Models)
 
-### Part 2 — Hands‑Only Tracking (Interaction SDK)
-
-**Goal:** Make hands move with simulated hand motion.
+**Goal:** Use the provided custom hand models (**OpenXRCustomHandPrefab\_L/R**) for hands‑only motion.
 
 **Steps**
 
 1. **Add hand interaction prefabs**
-    
-    1. In **Project** → **Packages/Meta XR Interaction SDK/Runtime/Prefabs**, drag **OVRInteractionComprehensive** as a **child** of **OVRCameraRig**.
-        
-    2. In the Hierarchy under **OVRInteractionComprehensive**, remove any prefabs you don’t need so that **OVRHands** remains.
-        
+
+   * In **Project** → **Packages/Meta XR Interaction SDK/Runtime/Prefabs**, drag **OVRInteractionComprehensive** as a **child** of **OVRCameraRig**.
+   * Under **OVRInteractionComprehensive**, keep **OVRHands** (you can remove other extras).
 2. **Add synthetic hands for simulation**
-    
-    1. In **Project** → **Packages/Meta XR Interaction SDK Essentials/Runtime/Prefabs/Hands**, add **OVRLeftHandSynthetic** and **OVRRightHandSynthetic** as children under **OVRCameraRig** (or alongside the hands setup).
-        
-    2. Select **OVRLeftHandSynthetic**. In **Inspector**, set **Data Modifier** to **OVRHands (Left Hand)**.
-        
-    3. Select **OVRRightHandSynthetic**. Set **Data Modifier** to **OVRHands (Right Hand)**.
-        
+
+   * In **Project** → **Packages/Meta XR Interaction SDK Essentials/Runtime/Prefabs/Hands**, add **OVRLeftHandSynthetic** and **OVRRightHandSynthetic** as children under **OVRCameraRig** (or alongside the hands setup).
+3. **Remove default hand visuals**
+
+   * Under **OVRLeftHandSynthetic**, delete the default objects named **OpenXRLeftHand** and **OculusHand\_L** (if present).
+   * Under **OVRRightHandSynthetic**, delete the default objects named **OpenXRRightHand** and **OculusHand\_R** (if present).
+4. **Add the custom hand prefabs**
+
+   * Drag **OpenXRCustomHandPrefab\_L** under **OVRLeftHandSynthetic/OVRLeftHandVisual**.
+   * Drag **OpenXRCustomHandPrefab\_R** under **OVRRightHandSynthetic/OVRRightHandVisual**.
+5. **Adjust Hand Visual settings**
+
+   * In the **Hierarchy**, select **OVRLeftHandVisual**.
+
+     * In the **Inspector** under **Hand Visual**, enable **Update Root Pose** and **Update Root Scale**.
+     * For **Open XR Skinned Mesh Renderer**, assign the **LeftHand** child of **OpenXRCustomHandPrefab\_L** (the one that has a **Skinned Mesh Renderer** component).
+   * Select **OVRRightHandVisual**.
+
+     * Enable **Update Root Pose** and **Update Root Scale**.
+     * For **Open XR Skinned Mesh Renderer**, assign the **RightHand** child of **OpenXRCustomHandPrefab\_R** (the one that has a **Skinned Mesh Renderer** component).
 
 **Expected Outcome**
 
-- When simulated movement plays, the synthetic left and right hands animate and pose changes are visible.
-    
+* When simulated movement plays, the custom left and right hands animate correctly using the provided models.
 
----
+### Verify With Meta Simulator (Meta SDK)
 
-### Verify With Meta Simulator (for both Parts)
-
-**Steps**
-
-1. In the Unity toolbar, click the **Meta Simulator** toggle (to the left of **Play**) to enable it.
-    
+1. In the Unity toolbar, enable the **Meta Simulator** toggle (next to **Play**).
 2. Click **Play**.
-    
-3. In the Simulator controls, open **Inputs → Movement Tracking Controls → Play random movement**.
-    
+3. Open **Inputs → Movement Tracking Controls → Play random movement**.
 
 **Expected Outcome**
 
-- The selected avatar (Full Body or Hands) should animate in place following the random motion.
-    
-- If there is no movement, stop Play, re‑check the settings above, and try again.
-    
+* The current target (Y Bot for Task 1, Hands for Task 2) animates following the random motion.
+* If there is no motion, stop Play, review the steps above, and try again.
 
 ---
 
-### End Note
+## Final Reminder (for both SDKs)
 
-Please focus on **completing** each part of the task, not on speed. After finishing, you will complete short surveys (SUS and NASA‑TLX) about your experience.
+Please focus on **completing the tasks** rather than speed. After you finish, your **subjective workload and usability** will be measured using the **NASA‑TLX** and **SUS** questionnaires.
