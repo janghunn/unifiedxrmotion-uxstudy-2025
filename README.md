@@ -1,10 +1,10 @@
-# Participant Manual — UnifiedXRMotion vs Meta SDK (Revised, Template-Based)
+# Participant Manual — UnifiedXRMotion vs Meta SDK 
 
 > **Important — After You Finish the Tasks**
 >
 > 1. **Complete the questionnaire:** After finishing all assigned tasks, please fill out the study survey here: **[Survey Link](https://docs.google.com/forms/d/e/1FAIpQLSeOqFWpfYdhKt8Hf3-RucCyR9Qm7beGRRzhLZ2IWdvW0Bi3Mw/viewform?usp=header&utm_source=chatgpt.com)**.
 >
-> 2. **Confirm your results:** If you believe you completed all tasks successfully, open the video file **Videos/{SDK}-results.mp4** (replace **{SDK}** with **UnifiedXRMotion** or **Meta**) and compare it with your own outcome. If the observed result matches, inform the experiment administrator that the session is complete.
+> 2. **Confirm your results:** If you believe you completed all tasks successfully, please scroll down to the final section of this manual and compare your outcome with the provided result videos **(UnifiedXRMotion and Meta)**. If the observed result matches, inform the experiment administrator that the session is complete.
 
 This manual provides two parallel sets of instructions for identical Unity tasks using two SDKs:
 
@@ -181,3 +181,14 @@ You will begin from a prepared Unity project.
 ## Final Reminder (for both SDKs)
 
 Please focus on **completing the tasks** rather than speed. After you finish, your **subjective workload and usability** will be measured using the **NASA‑TLX** and **SUS** questionnaires.
+
+<div style="display: flex; justify-content: space-between; gap: 10px;">
+  <video width="48%" controls>
+    <source src="Videos/ours-results.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <video width="48%" controls>
+    <source src="Videos/meta-results.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
