@@ -183,12 +183,19 @@ You will begin from a prepared Unity project.
 Please focus on **completing the tasks** rather than speed. After you finish, your **subjective workload and usability** will be measured using the **NASA‑TLX** and **SUS** questionnaires.
 
 <div style="display: flex; justify-content: space-between; gap: 10px;">
-  <video width="48%" controls>
-    <source src="Videos/ours-results.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <video width="48%" controls>
-    <source src="Videos/meta-results.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <figure style="width:48%; text-align:center;">
+    <video width="100%" controls>
+      <source src="Videos/ours-results.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <figcaption>UnifiedXRMotion (ours)</figcaption>
+  </figure>
+
+  <figure style="width:48%; text-align:center;">
+    <video width="100%" controls>
+      <source src="Videos/meta-results.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <figcaption>Meta SDK</figcaption>
+  </figure>
 </div>
