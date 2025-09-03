@@ -1,4 +1,4 @@
-# Participant Manual — UnifiedXRMotion vs Meta SDK 
+# Participant Manual — UnifiedXRMotion vs Meta SDK
 
 > **Important — After You Finish the Tasks**
 >
@@ -23,8 +23,7 @@
 >
 > If the observed result matches the expected outcome, inform the experiment administrator that the session is complete.
 
-
-
+---
 
 This manual provides two parallel sets of instructions for identical Unity tasks using two SDKs:
 
@@ -162,7 +161,7 @@ You will begin from a prepared Unity project.
    * Under Component **OVR Camera Rig Ref**, set **Ovr Camera Rig** to object **OVRCameraRig**
 2. **Add synthetic hands for simulation**
 
-   * In **Project** → **Packages/Meta XR Interaction SDK Essentials/Runtime/Prefabs/Hands/*, add **OVRLeftHandSynthetic** and **OVRRightHandSynthetic** as children under **OVRCameraRig/OVRInteractionComprehensive**.
+   * In **Project** → **Packages/Meta XR Interaction SDK Essentials/Runtime/Prefabs/Hands/**\*, add **OVRLeftHandSynthetic** and **OVRRightHandSynthetic** as children under **OVRCameraRig/OVRInteractionComprehensive**.
 3. **Remove default hand visuals**
 
    * Under **OVRLeftHandSynthetic/OVRLeftHandVisual**, delete the default objects named **OpenXRLeftHand** and **OculusHand\_L** (if present).
@@ -177,7 +176,8 @@ You will begin from a prepared Unity project.
 
      * In the **Inspector** under **Hand Visual**, enable **Update Root Pose** and **Update Root Scale**.
      * For **Open XR Skinned Mesh Renderer**, assign the **LeftHand** child of **OpenXRCustomHandPrefab\_L/OpenXRLeftHAnd** (the one that has a **Skinned Mesh Renderer** component).
-   * In the **Hierarchy**, select **OpenXRCustomHandPrefab_L**.
+
+   * In the **Hierarchy**, select **OpenXRCustomHandPrefab\_L**.
 
      * In the **Inspector** under **OVR Custom Skeleton**, enable **Update Root Pose** and **Update Root Scale**.
 
@@ -186,10 +186,9 @@ You will begin from a prepared Unity project.
      * Enable **Update Root Pose** and **Update Root Scale**.
      * For **Open XR Skinned Mesh Renderer**, assign the **RightHand** child of **OpenXRCustomHandPrefab\_R** (the one that has a **Skinned Mesh Renderer** component).
 
-   * In the **Hierarchy**, select **OpenXRCustomHandPrefab_R**.
+   * In the **Hierarchy**, select **OpenXRCustomHandPrefab\_R**.
 
      * In the **Inspector** under **OVR Custom Skeleton**, enable **Update Root Pose** and **Update Root Scale**.
-     
 6. **Link DataModifier components**
 
    * In **OVRLeftHandSynthetic**, locate the **DataModifier | Modify Data From Source** MonoBehaviour and assign **OVRHands** (child of **OVRInteractionComprehensive**) to it.
@@ -239,3 +238,7 @@ Please focus on **completing the tasks** rather than speed. After you finish, yo
     </td>
   </tr>
 </table>
+
+---
+
+**Note:** This manual has been completed as of *September 3, 2025*.
