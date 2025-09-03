@@ -85,7 +85,7 @@ You will begin from a prepared Unity project.
 **Steps**
 
 1. In the **Hierarchy**, expand **Hands** and confirm **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R** are present.
-2. Select **Hands**. In the **Inspector**, confirm **Motion Avatar** is present. If missing, **Add Component** → **Motion Avatar**.
+2. Select **Hands**. In the **Inspector**, click **Add Component** and add **Motion Avatar**.
 3. In **Motion Avatar**, set **Body Type** to **Two Hands**.
 4. In the **Hierarchy**, locate (or create) the hands motion system:
 
