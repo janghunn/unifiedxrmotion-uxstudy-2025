@@ -4,7 +4,27 @@
 >
 > 1. **Complete the questionnaire:** After finishing all assigned tasks, please fill out the study survey here: **[Survey Link](https://docs.google.com/forms/d/e/1FAIpQLSeOqFWpfYdhKt8Hf3-RucCyR9Qm7beGRRzhLZ2IWdvW0Bi3Mw/viewform?usp=header&utm_source=chatgpt.com)**.
 >
-> 2. **Confirm your results:** If you believe you completed all tasks successfully, please scroll down to the final section of this manual and compare your outcome with the provided result videos **(UnifiedXRMotion and Meta)**. If the observed result matches, inform the experiment administrator that the session is complete.
+> 2. **Confirm your results:** If you believe you completed all tasks successfully, please scroll down to the final section of this manual and compare your outcome with the provided result videos (**UnifiedXRMotion** and **Meta**).
+>
+> To check the task result:
+>
+> 1. Enable the simulator and press the Play button, as shown below:
+>
+> <div align="center">
+>   <img src="Data/Images/play-simulator-button.png" alt="Enable Simulator and Play" width="400" />
+> </div>
+>
+> 2. Once the scene is running, open **Inputs → Movement Tracking Controls** in the Meta simulator.
+> 3. Press the **Play random movement** button, as shown below:
+>
+> <div align="center">
+>   <img src="Data/Images/play-random-movement.png" alt="Play Random Movement" width="400" />
+> </div>
+>
+> If the observed result matches the expected outcome, inform the experiment administrator that the session is complete.
+
+
+
 
 This manual provides two parallel sets of instructions for identical Unity tasks using two SDKs:
 
