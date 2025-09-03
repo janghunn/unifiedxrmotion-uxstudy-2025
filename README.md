@@ -136,14 +136,14 @@ You will begin from a prepared Unity project.
 2. **Enable body tracking**
 
    * Select **OVRCameraRig** → in **Inspector**, find **OVRManager**.
+   * Under **Tracking**, set **Tracking Origin Type** to **Floor Level**.
    * Under **Quest Features**, set **Body Tracking Support** to **Required**.
    * Under **Movement Tracking**, set **Body Tracking Joint Set** to **Full Body**.
 3. **Retarget Y Bot** (Movement SDK)
 
    * In **Project**, right‑click the **Y Bot** model asset.
-   * Choose **Movement SDK → Body Tracking → Open Retargeting Configuration Editor**.
-   * If prompted, create and save the config JSON.
-   * Right‑click **Y Bot** again → **Movement SDK → Body Tracking → Add Character Retargeter**.
+   * Right-click the **Y Bot** object, then select **Movement SDK → Body Tracking → Open Retargeting Configuration Editor** from the context menu. After this step, click through all the **Next** buttons, then select **Validate and save config**, and finally press **Done**.
+   * Right‑click **Y Bot** again → **Movement SDK → Body Tracking → Add Character Retargeter**. After this step, click through all the **Next** buttons, then select **Validate and save config**, and finally press **Done**.
 
 **Expected Outcome**
 
@@ -159,13 +159,14 @@ You will begin from a prepared Unity project.
 
    * In **Project** → **Packages/Meta XR Interaction SDK/Runtime/Prefabs**, drag **OVRInteractionComprehensive** as a **child** of **OVRCameraRig**.
    * Under **OVRInteractionComprehensive**, keep **OVRHands** (you can remove other extras).
+   * Under Component **OVR Camera Rig Ref**, set **Ovr Camera Rig** to object **OVRCameraRig**
 2. **Add synthetic hands for simulation**
 
-   * In **Project** → **Packages/Meta XR Interaction SDK Essentials/Runtime/Prefabs/Hands**, add **OVRLeftHandSynthetic** and **OVRRightHandSynthetic** as children under **OVRCameraRig** (or alongside the hands setup).
+   * In **Project** → **Packages/Meta XR Interaction SDK Essentials/Runtime/Prefabs/Hands/*, add **OVRLeftHandSynthetic** and **OVRRightHandSynthetic** as children under **OVRCameraRig/OVRInteractionComprehensive**.
 3. **Remove default hand visuals**
 
-   * Under **OVRLeftHandSynthetic**, delete the default objects named **OpenXRLeftHand** and **OculusHand\_L** (if present).
-   * Under **OVRRightHandSynthetic**, delete the default objects named **OpenXRRightHand** and **OculusHand\_R** (if present).
+   * Under **OVRLeftHandSynthetic/OVRLeftHandVisual**, delete the default objects named **OpenXRLeftHand** and **OculusHand\_L** (if present).
+   * Under **OVRRightHandSynthetic/OVRRightHandVisual**, delete the default objects named **OpenXRRightHand** and **OculusHand\_R** (if present).
 4. **Add the custom hand prefabs**
 
    * Drag **OpenXRCustomHandPrefab\_L** under **OVRLeftHandSynthetic/OVRLeftHandVisual**.
@@ -175,11 +176,33 @@ You will begin from a prepared Unity project.
    * In the **Hierarchy**, select **OVRLeftHandVisual**.
 
      * In the **Inspector** under **Hand Visual**, enable **Update Root Pose** and **Update Root Scale**.
-     * For **Open XR Skinned Mesh Renderer**, assign the **LeftHand** child of **OpenXRCustomHandPrefab\_L** (the one that has a **Skinned Mesh Renderer** component).
+     * For **Open XR Skinned Mesh Renderer**, assign the **LeftHand** child of **OpenXRCustomHandPrefab\_L/OpenXRLeftHAnd** (the one that has a **Skinned Mesh Renderer** component).
+   * In the **Hierarchy**, select **OpenXRCustomHandPrefab_L**.
+
+     * In the **Inspector** under **OVR Custom Skeleton**, enable **Update Root Pose** and **Update Root Scale**.
+
    * Select **OVRRightHandVisual**.
 
      * Enable **Update Root Pose** and **Update Root Scale**.
      * For **Open XR Skinned Mesh Renderer**, assign the **RightHand** child of **OpenXRCustomHandPrefab\_R** (the one that has a **Skinned Mesh Renderer** component).
+
+   * In the **Hierarchy**, select **OpenXRCustomHandPrefab_R**.
+
+     * In the **Inspector** under **OVR Custom Skeleton**, enable **Update Root Pose** and **Update Root Scale**.
+     
+6. **Link DataModifier components**
+
+   * In **OVRLeftHandSynthetic**, locate the **DataModifier | Modify Data From Source** MonoBehaviour and assign **OVRHands** (child of **OVRInteractionComprehensive**) to it.
+
+   * After assigning **OVRHands**, a UI will appear. Refer to `Data/Images/ovrhands.png` and assign the values correctly for **Left** and **Right** as shown in the image.
+
+   * In **OVRRightHandSynthetic**, locate the **DataModifier | Modify Data From Source** MonoBehaviour and assign **OVRHands** (child of **OVRInteractionComprehensive**) to it.
+
+   * After assigning **OVRHands**, a UI will appear. Refer to `Data/Images/ovrhands.png` and assign the values correctly for **Left** and **Right** as shown in the image.
+
+> <div align="center">
+>   <img src="Data/Images/ovrhands.png" alt="OVRHands" width="200" />
+> </div>
 
 **Expected Outcome**
 
