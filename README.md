@@ -58,7 +58,7 @@ You will begin from a prepared Unity project.
 
 * When simulated movement plays, **Y Bot** moves smoothly (head, torso, arms, legs).
 
-### Task 2 — Hands‑Only Tracking (Custom Hand Models)
+### Task 2 — Hands‑Only Tracking and Retargeting (Custom Hand Models)
 
 **Goal:** Make the provided custom hand models (**OpenXRCustomHandPrefab\_L/R**) follow simulated hand motion.
 
@@ -129,7 +129,7 @@ You will begin from a prepared Unity project.
 
 * When simulated movement plays, **Y Bot** follows full‑body motion.
 
-### Task 2 — Hands‑Only Tracking (Custom Hand Models)
+### Task 2 — Hands‑Only Tracking and Retargeting (Custom Hand Models)
 
 **Goal:** Use the provided custom hand models (**OpenXRCustomHandPrefab\_L/R**) for hands‑only motion.
 
