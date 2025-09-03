@@ -42,11 +42,11 @@ You will begin from a prepared Unity project.
 **Steps**
 
 1. In the **Hierarchy**, expand **FullBody** and select **Y Bot**.
-2. In the **Inspector**, confirm that **Motion Avatar** is present. If missing, click **Add Component** → add **Motion Avatar**.
+2. In the **Inspector**, click **Add Component** and add **Motion Avatar**.
 3. In the **Hierarchy**, locate **MotionSystem**. If it does not exist, create it:
 
-   * Create Empty **MotionSystem** and add **Motion System**.
-   * As children, create **TrackingSystem** (add **Tracking Manager** and **Meta Body Tracking**) and **RetargetSystem** (add **Retarget System** and **Meta Body Retargeter**).
+   * Create Empty **MotionSystem** and add component **Motion System**.
+   * As children, create **TrackingSystem** (add components **Tracking Manager** and **Meta Body Tracking**) and **RetargetSystem** (add components **Retarget System** and **Meta Body Retargeter**).
 4. **Connect the systems** (verify or complete):
 
    * Select **MotionSystem** → in **Motion System**, add **TrackingSystem** to **Motion Triggers**.
@@ -187,11 +187,11 @@ Please focus on **completing the tasks** rather than speed. After you finish, yo
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="Videos/ours-results.gif" width="100%" alt="UnifiedXRMotion (ours)">
+      <img src="Data/Videos/ours-results.gif" width="100%" alt="UnifiedXRMotion (ours)">
       <div><em>UnifiedXRMotion (ours)</em></div>
     </td>
     <td align="center" width="50%">
-      <img src="Videos/meta-results.gif" width="100%" alt="Meta SDK">
+      <img src="Data/Videos/meta-results.gif" width="100%" alt="Meta SDK">
       <div><em>Meta SDK</em></div>
     </td>
   </tr>
