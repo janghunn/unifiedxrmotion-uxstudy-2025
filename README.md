@@ -39,12 +39,14 @@ Both manuals use the same wording style and level of detail for fair comparison.
 You will begin from a prepared Unity project.
 
 1. In the **Project** window, go to **Assets/Scenes/**.
-2. Right‑click **\_\_template.unity** → **Duplicate**. Rename the copy (for example, **ParticipantScene.unity**).
+2. Open the scenes task1-template.unity and task2-template.unity in sequence.
 3. Double‑click your new scene to open it.
 
-> The template scene already includes the basic layout shown in the study materials (SceneObjects, **FullBody** with **Y Bot**, and **Hands** with **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R**).
+> The template scene already includes the basic layout shown in the study materials (SceneObjects, **Y Bot**, and **Hands** with **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R**).
 
 ---
+<details>
+<summary>Manual A — UnifiedXRMotion</summary>
 
 ## Manual A — UnifiedXRMotion
 
@@ -60,7 +62,7 @@ You will begin from a prepared Unity project.
 
 **Steps**
 
-1. In the **Hierarchy**, expand **FullBody** and select **Y Bot**.
+1. In the **Hierarchy**, select **Y Bot**.
 2. In the **Inspector**, click **Add Component** and add **Motion Avatar**.
 3. In the **Hierarchy**, locate **MotionSystem**. If it does not exist, create it:
 
@@ -112,8 +114,12 @@ You will begin from a prepared Unity project.
 
 * The current target (Y Bot for Task 1, Hands for Task 2) animates following the random motion.
 * If there is no motion, stop Play, review the connections above, and try again.
+</details>
 
 ---
+
+<details>
+<summary>Manual B — Meta SDK (Core + Interaction + Movement)</summary>
 
 ## Manual B — Meta SDK (Core + Interaction + Movement)
 
@@ -217,6 +223,7 @@ You will begin from a prepared Unity project.
 
 * The current target (Y Bot for Task 1, Hands for Task 2) animates following the random motion.
 * If there is no motion, stop Play, review the steps above, and try again.
+</details>
 
 ---
 
