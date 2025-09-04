@@ -39,7 +39,7 @@ Both manuals use the same wording style and level of detail for fair comparison.
 You will begin from a prepared Unity project.
 
 1. In the **Project** window, go to **Assets/Scenes/**.
-2. Open the scenes task1-template.unity and task2-template.unity in sequence.
+2. Open the scenes **task1-template.unity** and **task2-template.unity** in sequence.
 3. Double‑click your new scene to open it.
 
 > The template scene already includes the basic layout shown in the study materials (SceneObjects, **Y Bot**, and **Hands** with **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R**).
