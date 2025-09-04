@@ -141,6 +141,19 @@ If your scene behaves like the clips, your setup is **correct**.
 3. Full body: **Inputs → Movement Tracking Controls → Play random movement**.
 4. Compare with the **UnifiedXRMotion** reference clips above.
 
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="Data/Videos/ours-fullbody-result.gif" width="100%" alt="FullBody Tracking (Ours)">
+      <div><em>Full‑Body Tracking (UnifiedXRMotion)</em></div>
+    </td>
+    <td align="center" width="50%">
+      <img src="Data/Videos/ours-hands-result.gif" width="100%" alt="Hands Tracking and Retargeting (Ours)">
+      <div><em>Hands Tracking & Retargeting (UnifiedXRMotion)</em></div>
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## Task‑B — Meta SDK (Meta Core + Interaction + Movement SDK)
@@ -209,6 +222,19 @@ If your scene behaves like the clips, your setup is **correct**.
 2. Full body: **Inputs → Movement Tracking Controls → Play random movement**.
 3. Hands: use **WASD** or click for **pinch**.
 4. Compare with the **Meta SDK** reference clips above.
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="Data/Videos/meta-fullbody-result.gif" width="100%" alt="FullBody Tracking (Meta)">
+      <div><em>Full‑Body Tracking (Meta)</em></div>
+    </td>
+    <td align="center" width="50%">
+      <img src="Data/Videos/meta-hands-result.gif" width="100%" alt="Hands Tracking and Retargeting (Meta)">
+      <div><em>Hands Tracking & Retargeting (Meta)</em></div>
+    </td>
+  </tr>
+</table>
 
 ---
 
