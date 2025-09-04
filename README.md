@@ -1,10 +1,74 @@
 # Participant Manual — UnifiedXRMotion vs Meta SDK
 
-> **Important — After You Finish the Tasks**
+This manual provides two parallel sets of instructions for identical Unity tasks using two SDKs:
+
+* **UnifiedXRMotion** (our SDK)
+* **Meta SDK** (Meta Core SDK + Meta XR Interaction SDK, with Movement SDK for full‑body retargeting)
+
+Both manuals use the same wording style and level of detail for fair comparison. Follow each step exactly as written; do **not** optimize for speed.
+
+---
+
+## Participant Briefing (Read Before Starting)
+
+**You will complete two Unity authoring tasks using two SDKs that target the same outcomes.** Follow the manuals exactly as written.
+
+### What You Will Do
+
+* Perform **two tasks** (full‑body avatar and hands‑only) in Unity.
+* Use **two SDKs** on matched versions and scenes.
+
+### During the Tasks
+
+* **Follow the Manual steps exactly.**
+* **Do not** optimize for speed.
+* **Do not** search the web or use outside resources.
+
+### How to Verify Completion
+
+1. **Enable the Meta Simulator**.
+2. **Press Play** in Unity.
+3. Open **Inputs → Movement Tracking Controls**.
+4. Click **Play random movement** to verify that the avatar or hands animate as expected.
+
+### Data Collected
+
+* **Screen recording**, **timing information**, and **Unity logs**.
+* **No personal files** are collected.
+
+### Getting Help
+
+* You may ask **process‑neutral** questions (e.g., about procedure or where to find the Manual).
+* The administrator may **remind you to re‑check the relevant Manual step** but will **not** provide SDK‑specific tips.
+
+### After Both Tasks
+
+* Complete **NASA‑TLX** (workload) and **SUS** (usability) questionnaires.
+* Fill out a **short survey** about your experience.
+
+### Your Rights
+
+* You may **stop at any time** without penalty.
+
+### Questions?
+
+If anything is unclear before you begin, please ask the administrator now.
+
+---
+
+## Start Here — Make a Copy of the Template Scene
+
+You will begin from a prepared Unity project.
+
+1. In the **Project** window, go to **Assets/Scenes/**.
+2. Open the scenes **task1-template.unity** and **task2-template.unity** in sequence.
+3. Double‑click your scene to open it.
+
+> The template scene already includes the basic layout shown in the study materials (SceneObjects, **Y Bot**, and **Hands** with **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R**).
+
+> **Important — After You Finish Each Task**
 >
-> 1. **Complete the questionnaire:** After finishing all assigned tasks, please fill out the study survey here: **[Survey Link](https://docs.google.com/forms/d/e/1FAIpQLSeOqFWpfYdhKt8Hf3-RucCyR9Qm7beGRRzhLZ2IWdvW0Bi3Mw/viewform?usp=header&utm_source=chatgpt.com)**.
->
-> 2. **Confirm your results:** If you believe you completed all tasks successfully, please scroll down to the final section of this manual and compare your outcome with the provided result videos (**UnifiedXRMotion** and **Meta**).
+> **Confirm your results:** If you believe you completed all tasks successfully, please scroll down to the final section of this manual and compare your outcome with the provided result videos (**UnifiedXRMotion** and **Meta**).
 >
 > To check the task result:
 >
@@ -20,31 +84,9 @@
 > <div align="center">
 >   <img src="Data/Images/play-random-movement.png" alt="Play Random Movement" width="400" />
 > </div>
->
-> If the observed result matches the expected outcome, inform the experiment administrator that the session is complete.
 
 ---
 
-This manual provides two parallel sets of instructions for identical Unity tasks using two SDKs:
-
-* **UnifiedXRMotion** (our SDK)
-* **Meta SDK** (Meta Core SDK + Meta XR Interaction SDK, with Movement SDK for full‑body retargeting)
-
-Both manuals use the same wording style and level of detail for fair comparison. Follow each step as written; do not optimize for speed.
-
----
-
-## Start Here — Make a Copy of the Template Scene
-
-You will begin from a prepared Unity project.
-
-1. In the **Project** window, go to **Assets/Scenes/**.
-2. Open the scenes **task1-template.unity** and **task2-template.unity** in sequence.
-3. Double‑click your new scene to open it.
-
-> The template scene already includes the basic layout shown in the study materials (SceneObjects, **Y Bot**, and **Hands** with **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R**).
-
----
 <details>
 <summary>Manual A — UnifiedXRMotion</summary>
 
@@ -114,6 +156,7 @@ You will begin from a prepared Unity project.
 
 * The current target (Y Bot for Task 1, Hands for Task 2) animates following the random motion.
 * If there is no motion, stop Play, review the connections above, and try again.
+
 </details>
 
 ---
@@ -182,27 +225,21 @@ You will begin from a prepared Unity project.
 
      * In the **Inspector** under **Hand Visual**, enable **Update Root Pose** and **Update Root Scale**.
      * For **Open XR Skinned Mesh Renderer**, assign the **LeftHand** child of **OpenXRCustomHandPrefab\_L/OpenXRLeftHAnd** (the one that has a **Skinned Mesh Renderer** component).
-
    * In the **Hierarchy**, select **OpenXRCustomHandPrefab\_L**.
 
      * In the **Inspector** under **OVR Custom Skeleton**, enable **Update Root Pose** and **Update Root Scale**.
-
    * Select **OVRRightHandVisual**.
 
      * Enable **Update Root Pose** and **Update Root Scale**.
      * For **Open XR Skinned Mesh Renderer**, assign the **RightHand** child of **OpenXRCustomHandPrefab\_R** (the one that has a **Skinned Mesh Renderer** component).
-
    * In the **Hierarchy**, select **OpenXRCustomHandPrefab\_R**.
 
      * In the **Inspector** under **OVR Custom Skeleton**, enable **Update Root Pose** and **Update Root Scale**.
 6. **Link DataModifier components**
 
    * In **OVRLeftHandSynthetic**, locate the **DataModifier | Modify Data From Source** MonoBehaviour and assign **OVRHands** (child of **OVRInteractionComprehensive**) to it.
-
    * After assigning **OVRHands**, a UI will appear. Refer to `Data/Images/ovrhands.png` and assign the values correctly for **Left** and **Right** as shown in the image.
-
    * In **OVRRightHandSynthetic**, locate the **DataModifier | Modify Data From Source** MonoBehaviour and assign **OVRHands** (child of **OVRInteractionComprehensive**) to it.
-
    * After assigning **OVRHands**, a UI will appear. Refer to `Data/Images/ovrhands.png` and assign the values correctly for **Left** and **Right** as shown in the image.
 
 > <div align="center">
@@ -223,6 +260,7 @@ You will begin from a prepared Unity project.
 
 * The current target (Y Bot for Task 1, Hands for Task 2) animates following the random motion.
 * If there is no motion, stop Play, review the steps above, and try again.
+
 </details>
 
 ---
@@ -230,6 +268,10 @@ You will begin from a prepared Unity project.
 ## Final Reminder (for both SDKs)
 
 Please focus on **completing the tasks** rather than speed. After you finish, your **subjective workload and usability** will be measured using the **NASA‑TLX** and **SUS** questionnaires.
+
+> **Complete the questionnaire:** After finishing all assigned tasks, please fill out the study survey here: **[Survey Link](https://docs.google.com/forms/d/e/1FAIpQLSeOqFWpfYdhKt8Hf3-RucCyR9Qm7beGRRzhLZ2IWdvW0Bi3Mw/viewform?usp=header&utm_source=chatgpt.com)**.
+>
+> If the observed result matches the expected outcome, inform the experiment administrator that the session is complete.
 
 ## Result Videos
 
@@ -247,5 +289,11 @@ Please focus on **completing the tasks** rather than speed. After you finish, yo
 </table>
 
 ---
+
+## Version & Completion Note
+
+* **Unity**: 6000.0.33f1
+* **Meta XR Simulator**: 77.0.0
+* **Movement SDK**: 78.0.0 (Meta condition)
 
 **Note:** This manual has been completed as of *September 3, 2025*.
