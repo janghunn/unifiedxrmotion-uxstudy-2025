@@ -58,32 +58,32 @@ You will compare what you see to short reference clips.
 
 ### What “Correct” Looks Like
 
-**UnifiedXRMotion — expected behavior**
+**SDK A — expected behavior**
 
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="Data/Videos/ours-fullbody-result.gif" width="100%" alt="FullBody Tracking (Ours)">
-      <div><em>Full‑Body Tracking (UnifiedXRMotion)</em></div>
+      <img src="Data/Videos/ours-fullbody-result.gif" width="100%" alt="FullBody Tracking (SDK A)">
+      <div><em>Full‑Body Tracking (SDK A)</em></div>
     </td>
     <td align="center" width="50%">
-      <img src="Data/Videos/ours-hands-result.gif" width="100%" alt="Hands Tracking and Retargeting (Ours)">
-      <div><em>Hands Tracking & Retargeting (UnifiedXRMotion)</em></div>
+      <img src="Data/Videos/ours-hands-result.gif" width="100%" alt="Hands Tracking and Retargeting (SDK A)">
+      <div><em>Hands Tracking & Retargeting (SDK A)</em></div>
     </td>
   </tr>
 </table>
 
-**Meta SDK — expected behavior**
+**SDK B — expected behavior**
 
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="Data/Videos/meta-fullbody-result.gif" width="100%" alt="FullBody Tracking (Meta)">
-      <div><em>Full‑Body Tracking (Meta)</em></div>
+      <img src="Data/Videos/meta-fullbody-result.gif" width="100%" alt="FullBody Tracking (SDK B)">
+      <div><em>Full‑Body Tracking (SDK B)</em></div>
     </td>
     <td align="center" width="50%">
-      <img src="Data/Videos/meta-hands-result.gif" width="100%" alt="Hands Tracking and Retargeting (Meta)">
-      <div><em>Hands Tracking & Retargeting (Meta)</em></div>
+      <img src="Data/Videos/meta-hands-result.gif" width="100%" alt="Hands Tracking and Retargeting (SDK B)">
+      <div><em>Hands Tracking & Retargeting (SDK B)</em></div>
     </td>
   </tr>
 </table>
@@ -102,7 +102,7 @@ If your scene behaves like the clips, your setup is **correct**.
 
 ---
 
-# Task‑A — UnifiedXRMotion (Our SDK)
+# Task‑A — SDK A
 
 **Goal:**
 
@@ -142,7 +142,7 @@ If your scene behaves like the clips, your setup is **correct**.
 
 ---
 
-## Steps — Full Body (Y‑Bot)
+## Steps — Full Body
 
 1. **Add Motion Avatar to Y‑Bot**
 
@@ -165,29 +165,29 @@ If your scene behaves like the clips, your setup is **correct**.
 
 ---
 
-## Verify — UnifiedXRMotion
+## Verify — SDK A
 
 1. Turn on the **Meta Simulator** toggle <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span> → click **Play**.
 2. **Hands:** move with **WASD** or click for **pinch**.
 3. **Full body:** **Inputs → Movement Tracking Controls → Play random movement**.
-4. Compare with the **UnifiedXRMotion** reference clips above.
+4. Compare with the **SDK A** reference clips above.
 
 <table>
   <tr>
     <td align="center" width="50%">
       <img src="Data/Videos/ours-fullbody-result.gif" width="100%" alt="FullBody Tracking (Ours)">
-      <div><em>Full‑Body Tracking (UnifiedXRMotion)</em></div>
+      <div><em>Full‑Body Tracking (SDK A)</em></div>
     </td>
     <td align="center" width="50%">
       <img src="Data/Videos/ours-hands-result.gif" width="100%" alt="Hands Tracking and Retargeting (Ours)">
-      <div><em>Hands Tracking & Retargeting (UnifiedXRMotion)</em></div>
+      <div><em>Hands Tracking & Retargeting (SDK A)</em></div>
     </td>
   </tr>
 </table>
 
 ---
 
-# Task‑B — Meta SDK (Meta Core + Interaction + Movement SDK)
+# Task‑B — SDK B
 
 **Goal:**
 
@@ -254,7 +254,7 @@ If your scene behaves like the clips, your setup is **correct**.
 
 ---
 
-## Steps — Full Body (Movement SDK)
+## Steps — Full Body
 
 ### 1) Enable body tracking on the rig
 
@@ -281,23 +281,23 @@ If your scene behaves like the clips, your setup is **correct**.
 
 ---
 
-### Verify — Meta SDK
+### Verify — SDK B
 
 1. Turn on the **Meta Simulator** toggle → click **Play**.
 2. Full body: **Inputs → Movement Tracking Controls → Play random movement**.
 3. Hands: use **WASD** or click for **pinch**.
-4. Compare with the **Meta SDK** reference clips.
+4. Compare with the **SDK B** reference clips.
 
 
 <table>
   <tr>
     <td align="center" width="50%">
       <img src="Data/Videos/meta-fullbody-result.gif" width="100%" alt="FullBody Tracking (Meta)">
-      <div><em>Full‑Body Tracking (Meta)</em></div>
+      <div><em>Full‑Body Tracking (SDK B)</em></div>
     </td>
     <td align="center" width="50%">
       <img src="Data/Videos/meta-hands-result.gif" width="100%" alt="Hands Tracking and Retargeting (Meta)">
-      <div><em>Hands Tracking & Retargeting (Meta)</em></div>
+      <div><em>Hands Tracking & Retargeting (SDK B)</em></div>
     </td>
   </tr>
 </table>
@@ -307,8 +307,8 @@ If your scene behaves like the clips, your setup is **correct**.
 ## Troubleshooting (Quick Fixes)
 
 * **I don’t see the Simulator panel.** Stop Play mode. Toggle the **Meta Simulator** off and on, then press **Play** again.
-* **Hands don’t move.** Recheck that **OVRHands** is assigned to both **DataModifier** components (Meta task) or that **Two Hands Retargeter** input is the **TrackingSystem** (UnifiedXRMotion task).
-* **Y Bot doesn’t move.** Confirm **Body Tracking** is enabled (Meta task) or that **Meta Body Tracking** feeds into **Meta Body Retargeter** with **Motion Avatar = Y Bot** (UnifiedXRMotion task).
+* **Hands don’t move.** Recheck that **OVRHands** is assigned to both **DataModifier** components (Meta task) or that **Two Hands Retargeter** input is the **TrackingSystem** (Task A).
+* **Y Bot doesn’t move.** Confirm **Body Tracking** is enabled (Meta task) or that **Meta Body Tracking** feeds into **Meta Body Retargeter** with **Motion Avatar = Y Bot** (Task A).
 * **Pink/missing models.** Ensure the **OpenXRCustomHandPrefab\_L/R** and **Y Bot** objects are present in the **Hierarchy** and their materials are assigned in the **Inspector**.
 
 ---
