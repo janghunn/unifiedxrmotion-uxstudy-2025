@@ -1,9 +1,6 @@
-# Participant Manual — UnifiedXRMotion vs Meta SDK
+# Participant Manual — SDK A vs SDK B
 
 **Goal:** Follow clear steps to set up the same scene in Unity using **two different SDKs** and verify the results with the simulator.
-
-* **UnifiedXRMotion** = our research SDK.
-* **Meta SDK** = Meta Core SDK + Meta XR Interaction SDK (with Movement SDK for full‑body retargeting).
 
 > Please **follow each step exactly as written**. Do **not** skip or optimize. If a step is unclear, flag the issue to the administrator.
 
@@ -94,51 +91,85 @@ You will compare what you see to short reference clips.
 If your scene behaves like the clips, your setup is **correct**.
 
 ---
+<div style="font-size:14px">
 
-## Task‑A — UnifiedXRMotion (Our SDK)
+# Annotated Legend
+
+* <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> — Scene objects in the Hierarchy panel
+* <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span> — Assets/Prefabs in the Project window
+* <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span> — Properties edited in the Inspector panel
+* <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span> — Specific component (added/edited in the Inspector)
+
+---
+
+# Task‑A — UnifiedXRMotion (Our SDK)
 
 **Goal:**
 
-* Make the custom hand models (**OpenXRCustomHandPrefab\_L/R**) follow simulated hand motion.
+* Make the custom hand models (**`OpenXRCustomHandPrefab_L/R`**) follow simulated hand motion.
 * Make **Y Bot** move with simulated full‑body motion.
 
-### Steps — Hands
+---
 
-1. In the **Hierarchy**, expand **Hands** and confirm **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R** exist.
-2. Select **Hands**. In the **Inspector**, click **Add Component** → add **Motion Avatar**.
-3. In **Motion Avatar**, set **Body Type = Two Hands**.
-4. In the **Hierarchy**, set up the motion systems:
+## Steps — Hands (Hands‑only simulation)
 
-   * Create **MotionSystem** (Empty object) if missing → add **Motion System** (component).
-   * Under **MotionSystem**, create **TrackingSystem** → add **Tracking Manager** and **Meta Hand Tracking** (components).
-   * Also under **MotionSystem**, create **RetargetSystem** → add **Retarget System** and **Two Hands Retargeter** (components).
-5. Connect the parts (verify each item):
+1. **Confirm hand prefabs exist**
 
-   * On **MotionSystem / Motion System**, add **TrackingSystem** to **Motion Triggers**.
-   * On **RetargetSystem / Retarget System**, set **Motion Avatar = Hands**.
-   * In **Retarget System**, add **Two Hands Retargeter** to **Input Motions**.
-   * On **Two Hands Retargeter**, set **Input Motion = TrackingSystem**.
+* In the <strong>Hierarchy</strong>, expand **`Hands`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → confirm **`OpenXRCustomHandPrefab_L`** and **`OpenXRCustomHandPrefab_R`** are present.
 
-### Steps — Full Body
+2. **Add Motion Avatar to Hands**
 
-1. In the **Hierarchy**, select **Y Bot**.
-2. In the **Inspector**, click **Add Component** → add **Motion Avatar**.
-3. Ensure a **MotionSystem** exists (see Hands steps above). If not, create it with child objects:
+* Select **`Hands`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → in <strong>Inspector</strong> → **Add Component** → add **`Motion Avatar`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>.
 
-   * **TrackingSystem** with **Tracking Manager** and **Meta Body Tracking**.
-   * **RetargetSystem** with **Retarget System** and **Meta Body Retargeter**.
-4. Connect the parts (verify each item):
+3. **Configure Motion Avatar (Hands)**
 
-   * On **MotionSystem / Motion System**, add **TrackingSystem** to **Motion Triggers**.
-   * On **RetargetSystem / Retarget System**, set **Motion Avatar = Y Bot**.
-   * In **Retarget System**, add **Meta Body Retargeter** to **Input Motions**.
-   * On **Meta Body Retargeter**, set **Input Motion = TrackingSystem**.
+* On **`Hands`** → **`Motion Avatar`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, set **`Body Type = Two Hands`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
 
-### Verify — UnifiedXRMotion
+4. **Add MotionSystem prefab to the scene (for Hands)**
 
-1. Turn on the **Meta Simulator** toggle → click **Play**.
-2. Hands: move with **WASD** or click for **pinch**.
-3. Full body: **Inputs → Movement Tracking Controls → Play random movement**.
+* From <code>Packages/Unified XR Motion/Assets/Prefabs/MotionSystem.asset</code> <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span>, drag **`MotionSystem`** into the scene
+
+5. **Assemble MotionSystem in the Hierarchy (for Hands)**
+
+* Under **`TrackingSystem`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>, add **`Meta Hand Tracking`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>.
+* Under **`RetargetSystem`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>, add **`Two Hands Retargeter`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>.
+* On **`RetargetSystem / Retarget System`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>→ set **`Motion Avatar = Hands`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+
+6. **Connect the parts (verify each item)**
+
+* In **`Retarget System`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, add **`Two Hands Retargeter`** to **`Input Motions`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+* On **`Two Hands Retargeter`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, set **`Input Motion = TrackingSystem`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+
+---
+
+## Steps — Full Body (Y‑Bot)
+
+1. **Add Motion Avatar to Y‑Bot**
+
+* Select **`Y Bot`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → **Inspector** → **Add Component** → add **`Motion Avatar`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>.
+
+2. **Add a separate MotionSystem prefab (for Full Body)**
+
+* From <code>Packages/Unified XR Motion/Assets/Prefabs/MotionSystem.asset</code> <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span>, add another **`MotionSystem`** into the scene. *This full‑body MotionSystem is configured separately from the Hands one.*
+
+3. **Assemble MotionSystem in the Hierarchy (for Full Body)**
+
+* Under **`TrackingSystem`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>, add **`Meta Body Tracking`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>.
+* Under **`RetargetSystem`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>, add **`Meta Full Body Retarget`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>.
+* On **`RetargetSystem / Retarget System`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>→ set **`Motion Avatar = Y Bot`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+
+4. **Connect the parts (verify each item)**
+
+* In **`Retarget System`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, add **`Meta Full Body Retarget`** to **`Input Motions`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+* On **`Meta Full Body Retarget`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, set **`Input Motion = TrackingSystem`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+
+---
+
+## Verify — UnifiedXRMotion
+
+1. Turn on the **Meta Simulator** toggle <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span> → click **Play**.
+2. **Hands:** move with **WASD** or click for **pinch**.
+3. **Full body:** **Inputs → Movement Tracking Controls → Play random movement**.
 4. Compare with the **UnifiedXRMotion** reference clips above.
 
 <table>
@@ -156,72 +187,107 @@ If your scene behaves like the clips, your setup is **correct**.
 
 ---
 
-## Task‑B — Meta SDK (Meta Core + Interaction + Movement SDK)
+# Task‑B — Meta SDK (Meta Core + Interaction + Movement SDK)
 
 **Goal:**
 
 * Make **Y Bot** move with simulated full‑body motion.
-* Use the provided custom hand models (**OpenXRCustomHandPrefab\_L/R**) for hands‑only motion.
+* Use the provided custom hand models (**`OpenXRCustomHandPrefab_L/R`**) for hands‑only motion.
 
-### Steps — Hands
+---
 
-1. **Add the camera rig**
+## Steps — Hands (Hands‑only simulation)
 
-   * **Project** → **Packages/Meta XR Core SDK/Prefabs** → drag **OVRCameraRig** into the **Hierarchy**.
-2. **Add hand interaction prefabs**
+### 1) Add the camera rig
 
-   * **Project** → **Packages/Meta XR Interaction SDK/Runtime/Prefabs** → drag **OVRInteractionComprehensive** under **OVRCameraRig**.
-   * Keep **OVRHands** under **OVRInteractionComprehensive** (you may remove other extras).
-   * On **OVR Interaction Comprehensive → OVR Camera Rig Ref**, set **Ovr Camera Rig = OVRCameraRig**.
-3. **Add synthetic hands for simulation**
+* <strong>Project</strong> → <code>Packages/Meta XR Core SDK/Prefabs</code> <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span> → drag **`OVRCameraRig`** into the root of the scene.
 
-   * **Project** → **Packages/Meta XR Interaction SDK Essentials/Runtime/Prefabs/Hands/** → add **OVRLeftHandSynthetic** and **OVRRightHandSynthetic** under **OVRCameraRig/OVRInteractionComprehensive**.
-4. **Remove default hand visuals**
+### 2) Add hand interaction prefabs
 
-   * Under **OVRLeftHandSynthetic/OVRLeftHandVisual**, delete **OpenXRLeftHand** and **OculusHand\_L** (if present).
-   * Under **OVRRightHandSynthetic/OVRRightHandVisual**, delete **OpenXRRightHand** and **OculusHand\_R** (if present).
-5. **Add the custom hand prefabs**
+* <strong>Project</strong> → <code>Packages/Meta XR Interaction SDK/Runtime/Prefabs</code> <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span> → drag **`OVRInteractionComprehensive`** **as a child of** **`OVRCameraRig`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>.
+* Keep only **`OVRHands`** under **`OVRInteractionComprehensive`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>. (remove extras; e.g. OVRHmd, OVRControllers, LeftInteractions, RightInteractions, OVRLeftHandVisual, OVRRightHandVisual, OVRLeftControllerVisual, OVRRightControllerVisual, and Locomotor) 
+* Select **`OVRInteractionComprehensive`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → in <strong>Inspector</strong>, set **`OVR Camera Rig Ref` → `OVR Camera Rig = OVRCameraRig`**.
 
-   * Drag **OpenXRCustomHandPrefab\_L** under **OVRLeftHandSynthetic/OVRLeftHandVisual**.
-   * Drag **OpenXRCustomHandPrefab\_R** under **OVRRightHandSynthetic/OVRRightHandVisual**.
-6. **Adjust Hand Visual settings**
+### 3) Add synthetic hands for simulation
 
-   * Select **OVRLeftHandVisual** → in **Hand Visual**, enable **Update Root Pose** and **Update Root Scale**.
-   * For **Open XR Skinned Mesh Renderer**, assign the **LeftHand** (the child with **Skinned Mesh Renderer**) under **OpenXRCustomHandPrefab\_L/OpenXRLeftHand**.
-   * Select **OpenXRCustomHandPrefab\_L** → in **OVR Custom Skeleton**, enable **Update Root Pose** and **Update Root Scale**.
-   * Repeat for **OVRRightHandVisual** and **OpenXRCustomHandPrefab\_R** (assign **RightHand** with **Skinned Mesh Renderer**; enable **Update Root Pose** and **Update Root Scale**).
-7. **Link DataModifier components**
+* <strong>Project</strong> → <code>Packages/Meta XR Interaction SDK Essentials/Runtime/Prefabs/Hands/</code> <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span>
 
-   * In **OVRLeftHandSynthetic**, find **DataModifier | Modify Data From Source** and assign **OVRHands** (child of **OVRInteractionComprehensive**).
-   * A small UI appears. Use the guide below to set values for **Left** and **Right**.
-   * Repeat the same for **OVRRightHandSynthetic**.
+  * Add **`OVRLeftHandSynthetic`** and **`OVRRightHandSynthetic`** **as children of** `OVRCameraRig/OVRInteractionComprehensive` <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>.
 
-   <div align="center">
-     <img src="Data/Images/ovrhands.png" alt="OVRHands" width="200" />
-   </div>
+### 4) Remove default hand visuals
 
-### Steps — Full Body (Movement SDK)
+* Under **`OVRLeftHandSynthetic/OVRLeftHandVisual`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>, delete **`OpenXRLeftHand`** and **`OculusHand_L`** (if present).
+* Under **`OVRRightHandSynthetic/OVRRightHandVisual`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>, delete **`OpenXRRightHand`** and **`OculusHand_R`** (if present).
 
-1. **Enable body tracking** on the rig
+### 5) Add the custom hand prefabs
 
-   * Select **OVRCameraRig** → **Inspector** → **OVRManager**.
-   * Under **Tracking**, set **Tracking Origin Type = Floor Level**.
-   * Under **Quest Features**, set **Body Tracking Support = Required**.
-   * Under **Movement Tracking**, set **Body Tracking Joint Set = Full Body**.
-2. **Retarget Y Bot**
+* Drag **`OpenXRCustomHandPrefab_L`** under `OVRLeftHandSynthetic/OVRLeftHandVisual` <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> from the Project <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span>.
+* Drag **`OpenXRCustomHandPrefab_R`** under `OVRRightHandSynthetic/OVRRightHandVisual` <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> from the Project <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span>.
 
-   * In **Project**, right‑click the **Y Bot** model asset.
-   * Choose **Movement SDK → Body Tracking → Open Retargeting Configuration Editor**.
-   * Click through the **Next** steps → **Validate and save config** → **Done**.
-   * Right‑click **Y Bot** again → **Movement SDK → Body Tracking → Add Character Retargeter**.
-   * Again, click through **Next** → **Validate and save config** → **Done**.
+### 6) Adjust Hand Visual settings
+
+**For Left**
+
+* Select **`OVRLeftHandVisual`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → in **Hand Visual** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, enable **`Update Root Pose`** and **`Update Root Scale`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+* In **Open XR Skinned Mesh Renderer** field <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>, assign **`LeftHand`** (child with **Skinned Mesh Renderer**) under `OpenXRCustomHandPrefab_L/OpenXRLeftHand` <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>.
+* Select **`OpenXRCustomHandPrefab_L`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → in **OVR Custom Skeleton** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, enable **`Update Root Pose`** and **`Update Root Scale`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+
+**For Right**
+
+* On **`OVRRightHandVisual`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>, enable **`Update Root Pose`** and **`Update Root Scale`** in **Hand Visual** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span> via <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+* Assign **Open XR Skinned Mesh Renderer** to **`RightHand`** (child with **Skinned Mesh Renderer**) under `OpenXRCustomHandPrefab_R/OpenXRRightHand` <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+* On **`OpenXRCustomHandPrefab_R`** → **OVR Custom Skeleton** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, enable **`Update Root Pose`** and **`Update Root Scale`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+
+### 7) Link DataModifier components (synthetic → live hand data)
+
+* Select **`OVRLeftHandSynthetic`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>.
+
+  * In **`DataModifier | Modify Data From Source`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, set **Source = `OVRHands`** (child under **`OVRInteractionComprehensive`**) <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+  * In the mini Left/Right UI, ensure **Left** reads from **`OVRHands.Left`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+* Select **`OVRRightHandSynthetic`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span>.
+
+  * In **`DataModifier | Modify Data From Source`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, set **Source = `OVRHands`** and ensure **Right** reads from **`OVRHands.Right`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+
+<p align="center">
+  <img src="Data/Images/ovrhands.png" alt="OVRHands" width="200" />
+</p>
+
+---
+
+## Steps — Full Body (Movement SDK)
+
+### 1) Enable body tracking on the rig
+
+* Select **`OVRCameraRig`** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → **`OVRManager`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span> in <strong>Inspector</strong> <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+
+  * **Tracking Origin Type = Floor Level** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>
+  * **Body Tracking Support = Required** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>
+  * **Body Tracking Joint Set = Full Body** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>
+  * *(Optional)* **Hand Tracking Support = Controllers And Hands** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>
+
+### 2) Create a Movement SDK retargeting config for Y‑Bot
+
+* In **Project**, right‑click the **Y‑Bot model asset** <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span> → **Movement SDK → Body Tracking → Open Retargeting Configuration Editor**.
+* In the wizard: click **Next**, review mappings → **Validate and Save Config** → **Done**.
+
+### 3) Add a Character Retargeter to Y‑Bot
+
+* Right‑click **Y‑Bot** again <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span> → **Movement SDK → Body Tracking → Add Character Retargeter**.
+* In the wizard: select the **retargeting config** you saved → **Validate and Save Config** → **Done**.
+* In **Hierarchy**, select your **Y‑Bot instance** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → confirm a **`CharacterRetargeter`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span> is added and references the saved **Retargeting Config** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+
+</div>
+
+
+---
 
 ### Verify — Meta SDK
 
 1. Turn on the **Meta Simulator** toggle → click **Play**.
 2. Full body: **Inputs → Movement Tracking Controls → Play random movement**.
 3. Hands: use **WASD** or click for **pinch**.
-4. Compare with the **Meta SDK** reference clips above.
+4. Compare with the **Meta SDK** reference clips.
+
 
 <table>
   <tr>
