@@ -4,8 +4,11 @@
 
 > Please **follow each step exactly as written**. Do **not** skip or optimize. If a step is unclear, flag the issue to the administrator.
 
----
+> **Important — Hand–Axis Alignment is pre‑completed** &#x20;
+> For this study, all **hand retargeting / axis alignment** for the custom hand meshes was **performed by the research team prior to your session**. You do **not** need to tune axes or run any hand retargeting tools. &#x20;
+> *Rationale:* SDK A performs automatic anatomical‑frame alignment via the **XR Hand Retargeter**, removing per‑avatar manual tuning. SDK B does not include built‑in hand‑axis alignment; therefore, we completed the required retargeting and mesh‑specific adjustments **before** sessions to avoid confounding task time and questionnaire ratings.
 
+---
 ## Quick Checklist (Before You Start)
 
 * [ ] Unity installed: **6000.0.33f1**
@@ -13,6 +16,7 @@
 * [ ] Meta Core SDK available for SDK B condition (**78.0.0**)
 * [ ] Movement SDK available for SDK B condition (**78.0.0**)
 * [ ] Meta XR Simulator available and enabled when needed (**78.0.0**)
+* [ ] **Hand–Axis Alignment:** Pre‑session retargeting for custom hand meshes is **already done**. Do **not** perform additional axis tuning.
 * [ ] You can see these assets in the **Project** window:
 
   * **Assets/Scenes/Task-A.unity** and **Assets/Scenes/Task-B.unity**
@@ -43,6 +47,7 @@ You will interact with: **Hierarchy**, **Inspector**, **Project window**, and th
 
 > The scene includes a basic layout: `SceneObjects`, **Y Bot**, and **Hands** with **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R**.
 
+> **Note:** Hand retargeting for the provided custom hand prefabs (L/R) was completed before your session. No action is required for axis alignment.
 ---
 
 ## How You Will Check Your Work (both SDKs)
@@ -113,6 +118,8 @@ If your scene behaves like the clips, your setup is **correct**.
 ---
 
 ## Steps — Hands (Hands‑only simulation)
+> **Callout — SDK A Hand Alignment** &#x20;
+> SDK A uses the **XR Hand Retargeter** for automatic anatomical‑frame alignment. No manual axis tuning is required in this task.
 
 1. **Confirm hand prefabs exist**
 
@@ -198,6 +205,8 @@ If your scene behaves like the clips, your setup is **correct**.
 ---
 
 ## Steps — Hands (Hands‑only simulation)
+> **Callout — SDK B Hand Alignment** &#x20;
+> SDK B lacks built‑in hand‑axis alignment. To keep timing and surveys fair, the research team **pre‑retargeted** the custom hand meshes for you. **Do not** run any retargeting tools or change hand axes during the task.
 
 ### 1) Add the camera rig
 
