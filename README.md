@@ -12,7 +12,7 @@
 * [ ] Project opens without errors
 * [ ] Meta Core SDK available for SDK B condition (**78.0.0**)
 * [ ] Movement SDK available for SDK B condition (**78.0.0**)
-* [ ] Meta XR Simulator available and enabled when needed (**77.0.0**)
+* [ ] Meta XR Simulator available and enabled when needed (**78.0.0**)
 * [ ] You can see these assets in the **Project** window:
 
   * **Assets/Scenes/Task-A.unity** and **Assets/Scenes/Task-B.unity**
@@ -330,5 +330,5 @@ If your scene behaves like the clips, your setup is **correct**.
 * **Unity**: 6000.0.33f1
 * **Meta Core SDK**: 78.0.0 (SDK B condition)
 * **Movement SDK**: 78.0.0 (SDK B condition)
-* **Meta XR Simulator**: 77.0.0
+* **Meta XR Simulator**: 78.0.0
 * Manual last updated: **September 3, 2025**
