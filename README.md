@@ -2,6 +2,8 @@
 
 **Goal:** Follow clear steps to set up the same scene in Unity using **two different SDKs** and verify the results with the simulator.
 
+link: https://docs.google.com/forms/d/e/1FAIpQLSfKta_5VTDDhBr73GycSTtEXZZVMVA3GtLfT6Oyh-QB05UxIw/viewform?usp=header
+
 > Please **follow each step exactly as written**. Do **not** skip or optimize. If a step is unclear, flag the issue to the administrator.
 
 > **Important — Hand–Axis Alignment is pre‑completed** &#x20;
@@ -328,7 +330,7 @@ If your scene behaves like the clips, your setup is **correct**.
 1. Compare your scene behavior to the reference clips.
 2. If your result matches, tell the administrator you are done.
 3. Complete the questionnaires: **NASA‑TLX** and **SUS**.
-4. Submit the survey here: **[Study Survey Link](https://docs.google.com/forms/d/e/1FAIpQLSeOqFWpfYdhKt8Hf3-RucCyR9Qm7beGRRzhLZ2IWdvW0Bi3Mw/viewform?usp=header&utm_source=chatgpt.com)**.
+4. Submit the survey here: **[Study Survey Link](https://docs.google.com/forms/d/e/1FAIpQLSfKta_5VTDDhBr73GycSTtEXZZVMVA3GtLfT6Oyh-QB05UxIw/viewform?usp=header)**.
 
 > Focus on **accuracy** and **task completion**, not speed.
 
