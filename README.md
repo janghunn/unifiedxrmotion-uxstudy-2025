@@ -111,7 +111,10 @@ If your scene behaves like the clips, your setup is **correct**.
 ---
 
 # Task‑A — SDK A
-
+  * **Assets/Scenes/Task-A.unity**
+  * **SceneObjects**, **Y Bot**, **Hands**
+  * **Hands** contains **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R**
+    
 **Goal:**
 
 * Make the custom hand models (**`OpenXRCustomHandPrefab_L/R`**) follow simulated hand motion.
@@ -198,6 +201,9 @@ If your scene behaves like the clips, your setup is **correct**.
 ---
 
 # Task‑B — SDK B
+  * **Assets/Scenes/Task-B.unity**
+  * **SceneObjects**, **Y Bot**, **Hands**
+  * **Hands** contains **OpenXRCustomHandPrefab\_L** and **OpenXRCustomHandPrefab\_R**
 
 **Goal:**
 
