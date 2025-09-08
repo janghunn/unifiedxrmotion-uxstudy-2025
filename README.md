@@ -170,7 +170,7 @@ If your scene behaves like the clips, your setup is **correct**.
 
 4. **Connect the parts (verify each item)**
 
-* In **`Retarget System`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, add **`Meta Full Body Retarget`** to **`Input Motions`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
+* In **Retarget System** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">[Component]</span>, click the **+** button in **Input Motions** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">[Inspector]</span> to add a new element, then assign **Meta Full Body Retarget** to it.
 * On **`Meta Full Body Retarget`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span>, set **`Input Motion = TrackingSystem`** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
 
 ---
@@ -279,7 +279,7 @@ If your scene behaves like the clips, your setup is **correct**.
 
 ### 2) Create a Movement SDK retargeting config for Y‑Bot
 
-* In **Project**, right‑click the **Y‑Bot model asset** <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span> → **Movement SDK → Body Tracking → Open Retargeting Configuration Editor**.
+* In **Hierarchy**, right‑click the **Y‑Bot** <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span> → **Movement SDK → Body Tracking → Open Retargeting Configuration Editor**.
 * In the wizard: click **Next**, review mappings → **Validate and Save Config** → **Done**.
 
 ### 3) Add a Character Retargeter to Y‑Bot
