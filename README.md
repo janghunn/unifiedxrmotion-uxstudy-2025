@@ -284,7 +284,7 @@ If your scene behaves like the clips, your setup is **correct**.
 
 ### 3) Add a Character Retargeter to Y‑Bot
 
-* Right‑click **Y‑Bot** again <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Project]</span> → **Movement SDK → Body Tracking → Add Character Retargeter**.
+* Right‑click **Y‑Bot** again <span style="background:#E3F2FD;color:#0D47A1;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → **Movement SDK → Body Tracking → Add Character Retargeter**.
 * In the wizard: select the **retargeting config** you saved → **Validate and Save Config** → **Done**.
 * In **Hierarchy**, select your **Y‑Bot instance** <span style="background:#E8F5E9;color:#1B5E20;padding:2px 6px;border-radius:6px">\[Hierarchy]</span> → confirm a **`CharacterRetargeter`** <span style="background:#F3E5F5;color:#4A148C;padding:2px 6px;border-radius:6px">\[Component]</span> is added and references the saved **Retargeting Config** <span style="background:#FFF3E0;color:#E65100;padding:2px 6px;border-radius:6px">\[Inspector]</span>.
 
